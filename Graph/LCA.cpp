@@ -43,47 +43,47 @@ int lvl[nn];
 int par[nn][LG];               // par[u][i]  =>  (1 << i) th parent of u
 
 void dfs(int u, int p){
-	lvl[u] = lvl[p] + 1;
-	par[u][0] = p;
+    lvl[u] = lvl[p] + 1;
+    par[u][0] = p;
 
-	for(int v : g[u]){
-		if(v != p){
-			dfs(v, u);
-		}
-	}
+    for(int v : g[u]){
+        if(v != p){
+            dfs(v, u);
+        }
+    }
 }
 
 void pre(){
-	for(int i = 1; i < LG; i++){
-		for(int u = 1; u < nn; u++){
-			if(par[u][i-1] != -1){
-				par[u][i] = par[par[u][i-1]][i-1];
-			}
-		}
-	}
+    for(int i = 1; i < LG; i++){
+        for(int u = 1; u < nn; u++){
+            if(par[u][i-1] != -1){
+                par[u][i] = par[par[u][i-1]][i-1];
+            }
+        }
+    }
 }
 
 int lca(int u, int v){
-	if(lvl[u] < lvl[v]) swap(u, v);
+    if(lvl[u] < lvl[v]) swap(u, v);
 
-	int dif = lvl[u] - lvl[v];
+    int dif = lvl[u] - lvl[v];
 
-	while(dif > 0){
-		int raise = log2(dif);
-		u = par[u][raise];
-		dif -= (1 << raise);
-	}
+    while(dif > 0){
+        int raise = log2(dif);
+        u = par[u][raise];
+        dif -= (1 << raise);
+    }
 
-	if(u == v) return u;
+    if(u == v) return u;
 
-	for(int i = LG-1; i >= 0; i--){
-		if(par[u][i] != -1 and par[u][i] != par[v][i]){
-			u = par[u][i];
-			v = par[v][i];
-		}
-	}
+    for(int i = LG-1; i >= 0; i--){
+        if(par[u][i] != -1 and par[u][i] != par[v][i]){
+            u = par[u][i];
+            v = par[v][i];
+        }
+    }
 
-	return par[u][0];
+    return par[u][0];
 }
 
 //returns the distance between two nodes "u" and "v"
@@ -98,28 +98,28 @@ int getAncestor(int u, int dis){
     int dif = dis;
 
     while(dif > 0){
-    	int raise = log2(dif);
-    	u = par[u][raise];
-    	dif -= (1 << raise);
+        int raise = log2(dif);
+        u = par[u][raise];
+        dif -= (1 << raise);
     }
     return u;
 }
 
 void robin(){
-	int n, m;
-	cin >> n >> m;
-	for(int i=0; i<m; i++){
-		int u, v;
-		cin >> u >> v;
-		g[u].push_back(v);
-		g[v].push_back(u);
-	}
+    int n, m;
+    cin >> n >> m;
+    for(int i=0; i<m; i++){
+        int u, v;
+        cin >> u >> v;
+        g[u].push_back(v);
+        g[v].push_back(u);
+    }
 
-	memset(par, -1, sizeof par);
-	lvl[0] = -1;
+    memset(par, -1, sizeof par);
+    lvl[0] = -1;
 
-	dfs(1, 0);
-	pre();
+    dfs(1, 0);
+    pre();
 }
 
 int32_t main(){
@@ -128,8 +128,8 @@ int32_t main(){
     int T = 1;
     // cin >> T;
     for(int tc = 1; tc <= T; tc++){
-    	// cout << "Case #" << tc << ": ";
-    	robin();
+        // cout << "Case #" << tc << ": ";
+        robin();
     }
     return 0;
 }
