@@ -1,3 +1,5 @@
+typedef long long ll;
+
 ll fac[nn], ifac[nn];
 
 ll expo(ll n, ll r){
