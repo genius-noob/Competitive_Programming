@@ -1,8 +1,3 @@
-/**
- *    Author:  "Robin Singh" !!!
- *    BrainyIsTheNewSexy     (CodeForces)
- *    rob_in_1               (Other OJs)
-**/
 #include <bits/stdc++.h>
 using namespace std;
 #define IOS ios::sync_with_stdio(0); cin.tie(0); cout.tie(0);
