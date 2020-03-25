@@ -1,9 +1,3 @@
-/**
- *    Author: "Robin Singh" !!
- *    BrainyIsTheNewSexy    (CodeForces, CodeJam)
- *    rob_in_1              (All Other OJs)
-**/
-
 #include <bits/stdc++.h>
 using namespace std;
 
