@@ -1,4 +1,5 @@
 int ainv, binv;
+
 void extgcd(int a, int b){ 
 	if(b == 0) {
 		hcf = a;
