@@ -2,7 +2,9 @@ vector<tuple<int, int, int>> ret;
 
 ret.emplace_back(x, y, z);
 ret.emplace_back(make_tuple(x, y, z));
+ret.push_back({x, y, z});
 ret[i] = make_tuple(x, y, z);
+ret[i] = {x, y, z}
 
 ret.size()
 
