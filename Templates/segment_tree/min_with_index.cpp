@@ -9,8 +9,8 @@ node merge(node &a, node &b) {
  
 void build(int idx, int start, int end) {
     if(start == end) {
-        tree[idx].value = m[start];
-        tree[idx].index = start;
+        // tree[idx].value = a[start]; tree[idx].index = start;
+        tree[idx] = {a[start], start}
     }
     else {
         int mid = start + end >> 1;
@@ -34,5 +34,5 @@ node query(int ql, int qr) {
     return query(1, 0, n-1, ql, qr);
 }
 
-// tree.resize((n+1) << 2);
+// tree.resize(n << 2);
 
