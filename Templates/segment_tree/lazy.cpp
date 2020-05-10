@@ -1,3 +1,5 @@
+vector<int> tree, lazy;
+
 int merge(int a, int b) {
     return a + b;
 }
@@ -58,3 +60,6 @@ int query(int idx, int start, int end, int ql, int qr) {
     int right = query(idx << 1 | 1, mid + 1, end, ql, qr);
     return merge(left, right);
 }
+
+// tree.resize(n << 2);
+// lazy.resize(n << 2);
