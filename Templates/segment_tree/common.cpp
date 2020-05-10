@@ -1,8 +1,8 @@
 vector<int> tree;
  
 int merge(int a, int b) {
-    // return (a < b) ? a : b;
-    // return (a > b) ? a : b;
+    // min(a, b);
+    // max(a, b);
     return a + b;
 }
  
