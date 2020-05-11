@@ -1,0 +1,42 @@
+https://www.topcoder.com/single-round-match-779-editorials/
+
+class ArraySorting {
+  public:
+  vector <int> arraySort(vector <int> A);
+};
+
+vector <int> ArraySorting::arraySort(vector <int> a) {
+	int n = a.size();
+	vector<vector<int>> dp(n+1, vector<int>(nn));
+
+	for(int j = 1; j < nn; j++) {
+		if(j == a[n-1]) dp[n-1][j] = 0;
+		else dp[n-1][j] = 1;
+	}
+
+	for(int i = n-2; i >= 0; i--) {
+		int min_so_far = nn;
+		for(int j = nn-1; j >= 0; j--) {
+			min_so_far = min(min_so_far, dp[i+1][j]);
+			if(a[i] == j) dp[i][j] = min_so_far;
+			else dp[i][j] = min_so_far + 1;
+		}
+	}
+
+	int minn = nn;
+	for(int j = 1; j < nn; j++) minn = min(minn, dp[0][j]);
+	// dbg(minn);
+    int last = 1;
+	vector <int> ans;
+	for(int i = 0; i < n; i++) {
+		for(int j = last; j < nn; j++) {
+			if(dp[i][j] == minn) {
+				last = j;
+				break;
+			}
+		}
+		ans.push_back(last);
+		if(a[i] != last) minn--;
+	}
+	return ans;
+}
