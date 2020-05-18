@@ -1,4 +1,4 @@
-Lexicographically Largest or Smallest LCS :
+// Lexicographically Largest or Smallest LCS :
 
 string A, B, dp[105][105];
 
@@ -28,7 +28,7 @@ To print any LCS :
 
 https://www.hackerrank.com/challenges/dynamic-programming-classics-the-longest-common-subsequence/editorial
 
-int A[N], B[N], f[N][N];                  (Here vector, we can use string)
+int A[N], B[N], f[N][N];                  // (Here vector, we can use string)
 vector<int> res;
 void reconstruct(int i, int j) {
     if (i == 0 || j == 0) res.clear(); 
